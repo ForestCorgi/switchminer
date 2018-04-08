@@ -1,24 +1,19 @@
+import json
 import magic
 import os
 
-from io import StringIO
-
 from .plugin import Plugin
-
-magic_db = StringIO("0   string 3gmI   Apple IMG3")
+from .utils import path_to_dict
 
 class PluginFiles(Plugin):
+    def __init__(self, data_dir):
+        super().__init__(data_dir)
+        self.name = "files"
+
     def run(self, build_dir):
-        files_list = {}
-        dirs_list = []
         with magic.Magic(["./plugins/magic.db.mgc", "/usr/share/file/magic.mgc"]) as m:
-            for root, dirs, files in os.walk(build_dir):
-                adjusted = root.replace(build_dir, "")
-                dirs_list.append(adjusted)
+            file_structure = path_to_dict(build_dir, m)
 
-                print("Processing {}".format(adjusted))
+        file_structure["name"] = "/"
 
-                for file in files:
-                    full = os.path.join(root, file)
-
-                    files_list[full] = m.id_filename(full)
+        return file_structure
