@@ -1,1 +1,22 @@
-0	string	3gmI	Apple IMG3
+0 string  8900  Apple 8900 Image Container
+0 string  3gmI  Apple Image 3
+0 string  4gmI  Apple Image 4
+0 string  m4mI  Apple Image 4 Manifest
+0 string  p4mI  Apple Image 4 Payload
+10 string  gaid  Diagnostics Payload
+10 string  lnrk  Kernelcache
+10 string  ogol  AppleLogo
+10 string  Ctab  BatteryCharging Logo [Image 2]
+10 string  ltab  BatteryCharging0 Logo [Image 2]
+10 string  Ltab  BatteryCharging1 Logo [Image 2]
+10 string  ertd  DeviceTree
+10 string  tobi  iBoot
+10 string  blli  LLB
+10 string  zbll  LLB [Image 2]
+10 string  vrsn  NeedService [Image 2]
+10 string  mcer  RecoveryMode
+10 string  0ghc  BatteryCharging0 [Bright]
+10 string  1ghc  BatteryCharging1 [Dim]
+10 string  Ftab  BatteryFull
+10 string  0tab  BatteryLow0 [Empty Battery]
+10 string  1tab  BatteryLow1 [Red + Empty Battery]
