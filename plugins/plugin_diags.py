@@ -5,7 +5,7 @@ from glob import glob
 from .plugin import Plugin
 
 diags_dir_base = "AppleInternal/Diags/bin"
-diags_patterns = ["diag*.img3", "diag*.img4", "diag*.im4p"]
+diags_patterns = {"img3": "*.img3", "img4": "*.img4", "im4p": "*.im4p"}
 
 class PluginDiags(Plugin):
     def __init__(self, data_dir):
@@ -20,15 +20,16 @@ class PluginDiags(Plugin):
         if not os.path.isdir(diags_dir):
             return None
 
-        for pattern in diags_patterns:
-            for result in glob(os.path.join(diags_dir, pattern)):
+        for pattern_type in diags_patterns:
+            for result in glob(os.path.join(diags_dir, diags_patterns[pattern_type])):
                 name = os.path.basename(result)
 
                 diag_info = {
                     "name": name
+                    "type": pattern_type
                 }
 
-                if name.find("-") != -1:
+                if pattern_type != diags_patterns["img4"]:
                     device = name.split(".")[0].split("-")[1].lower().capitalize()
                     diag_info["device"] = device
 
