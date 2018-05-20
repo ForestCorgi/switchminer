@@ -12,6 +12,7 @@ class PluginFiles(Plugin):
     def __init__(self, data_dir):
         super().__init__(data_dir)
         self.name = "files"
+        self.id = "files"
 
     def run(self, build_dir):
         with magic.Magic(["./plugins/magic.db.mgc", default_magic_db]) as m:

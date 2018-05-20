@@ -11,7 +11,8 @@ system_log_base = "private/var/log/system.log"
 class PluginInfo(Plugin):
     def __init__(self, data_dir):
         super().__init__(data_dir)
-        self.name = "info"
+        self.id = "info"
+        self.name = self.id
 
     def run(self, build_dir):
         with open(os.path.join(build_dir, version_plist_base), "rb") as version_plist:

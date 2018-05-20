@@ -18,7 +18,7 @@ if __name__ == "__main__":
             result = plugin.run(os.path.join("builds", build))
 
             if result != None:
-                data[plugin.name] = result
+                data[plugin.id] = result
 
         with open(os.path.join("data", build + ".json"), "w") as build_data:
             json.dump(data, build_data)

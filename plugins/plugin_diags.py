@@ -11,6 +11,7 @@ class PluginDiags(Plugin):
     def __init__(self, data_dir):
         super().__init__(data_dir)
         self.name = "diags"
+        self.id = self.name
 
     def run(self, build_dir):
         diags_list = []
@@ -28,7 +29,9 @@ class PluginDiags(Plugin):
                 }
 
                 if name.find("-") != -1:
-                    device = name.split(".")[0].split("-")[1]
+                    device = name.split(".")[0].split("-")[1].lower().capitalize()
                     diag_info["device"] = device
+
+                diags_list.append(diag_info)
 
         return diags_list
