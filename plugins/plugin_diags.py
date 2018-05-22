@@ -3,6 +3,7 @@ import os
 from glob import glob
 
 from .plugin import Plugin
+from .utils import hash_file
 
 diags_dir_base = "AppleInternal/Diags/bin"
 diags_patterns = {"img3": "*.img3", "img4": "*.img4", "im4p": "*.im4p"}
@@ -25,11 +26,12 @@ class PluginDiags(Plugin):
                 name = os.path.basename(result)
 
                 diag_info = {
-                    "name": name
-                    "type": pattern_type
+                    "name": name,
+                    "type": pattern_type,
+                    "hash": hash_file(result)
                 }
 
-                if pattern_type != diags_patterns["img4"]:
+                if pattern_type != "img4":
                     device = name.split(".")[0].split("-")[1].lower().capitalize()
                     diag_info["device"] = device
 

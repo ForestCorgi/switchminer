@@ -1,4 +1,6 @@
 import os
+import pyblake2
+import sys
 
 def path_to_dict(path, m):
     d = {"name": os.path.basename(path)}
@@ -11,3 +13,7 @@ def path_to_dict(path, m):
         d["magic"] = m.id_filename(path)
 
     return d
+
+def hash_file(path):
+    with open(path, "rb") as file:
+        return pyblake2.blake2b(data=file.read(), digest_size=20).hexdigest()
