@@ -2,18 +2,19 @@
 
 import json
 import os
+import sys
 
 from plugins import plugins as plugins_list
 
 if __name__ == "__main__":
     builds = [build for build in os.listdir("builds") if build != ".gitignore"]
     plugins = [plugin("data") for plugin in plugins_list]
-    
+
     if(len(builds) == 0):
         print("SwitchMiner was unable to find any builds!")
         print("Please note that builds have to be extracted into the 'builds' folder of this directory")
-        return 0
-    
+        sys.exit(0)
+
     for build in builds:
         data = {}
 
