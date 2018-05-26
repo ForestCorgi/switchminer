@@ -14,7 +14,7 @@ class PluginInfo(Plugin):
         self.id = "info"
         self.name = self.id
 
-    def run(self, build_dir):
+    def run(self, build_dir, build_data):
         with open(os.path.join(build_dir, version_plist_base), "rb") as version_plist:
             plist_build_info = plistlib.load(version_plist, fmt=plistlib.FMT_XML)
 

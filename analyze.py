@@ -15,7 +15,7 @@ if __name__ == "__main__":
         for plugin in plugins:
             print("Running plugin {} on build {}...".format(plugin.name, build))
 
-            result = plugin.run(os.path.join("builds", build))
+            result = plugin.run(os.path.join("builds", build), data)
 
             if result != None:
                 data[plugin.id] = result

@@ -14,7 +14,7 @@ class PluginDiags(Plugin):
         self.name = "diags"
         self.id = self.name
 
-    def run(self, build_dir):
+    def run(self, build_dir, build_data):
         diags_list = []
         diags_dir = os.path.join(build_dir, diags_dir_base)
 

@@ -14,7 +14,7 @@ class PluginFiles(Plugin):
         self.name = "files"
         self.id = "files"
 
-    def run(self, build_dir):
+    def run(self, build_dir, build_data):
         with magic.Magic(["./plugins/magic.db.mgc", default_magic_db]) as m:
             file_structure = path_to_dict(build_dir, m)
 
