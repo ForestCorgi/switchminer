@@ -1,10 +1,11 @@
 import os
+import mmh3
 import pyblake2
 import sys
 
 def hash_file(path):
     with open(path, "rb") as file:
-        return pyblake2.blake2b(data=file.read(), digest_size=20).hexdigest()
+        return mmh3.hash_bytes(file.read()).hex()
 
 def path_to_dict(path, m):
     d = {"name": os.path.basename(path)}
