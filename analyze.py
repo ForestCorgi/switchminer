@@ -7,7 +7,7 @@ import sys
 from plugins import plugins as plugins_list
 
 if __name__ == "__main__":
-    builds = [build for build in os.listdir("builds") if os.path.isdir("builds", build)]
+    builds = [build for build in os.listdir("builds") if os.path.isdir(os.path.join("builds", build))]
     plugins = [plugin("data") for plugin in plugins_list]
 
     if(len(builds) == 0):
